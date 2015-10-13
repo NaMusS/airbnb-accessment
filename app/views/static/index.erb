@@ -1,2 +1,13 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<h1>AirBnB</h1>
+<p>Log In Here</p>
+<form action="/properties" method="get">
+  Username:<input type="text" name="user[username]"><br>
+  Password:<input type="text" name="user[password]"><br>
+  <p><input type="submit" value="Log In"></p>
+ </form>
+
+
+ <h3>Are You New?</h3>
+<form action="/users/new" method="post">
+ <input type="submit" value="Not a AirBnB user yet? Sign up here!">
+</form>
