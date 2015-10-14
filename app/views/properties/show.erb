@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Welcome to your homepage</title>
+	<title>Property Details</title>
 </head>
 <body>
-	<div> 
-	<h1>Here are the available properties</h1>
-		
+	<h1>Property Details</h1>
+	<div><a href="/">Homepage</a></div>
+	<div>
+		<h1><%= @property.title %></h1>
+		<h1><%= @property.description %></h1>
+		<h1><%= @property.price %></h1>
+		<h1><%=@property.user_id %></h1>
+		<!--%= @user.username %><br>
+		<%  @user.properties.all.each do |property| %>
+		<%= property.title %><br>
+		<%= property.description %><br>
+		<%= property.price %><br>			
+		<%  end  %><br-->
+		<p><a href="/properties/<%= @property.id %>/edit">Edit</a></p>
 	</div>
-	<table border="1">
-		<tr>
-			<td>
-				<h1>Location</h1>
-			</td>
-			<td>
-				<h1>Price Per Night</h1>
-			</td>
-		</tr>
-		
-	</table>
 
 </body>
 </html>
