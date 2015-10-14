@@ -1,9 +1,9 @@
-post '/users/new' do
+# post '/users/new' do
 	
-	erb :"static/signup"
-end
+# 	erb :"static/signup"
+# end
 
 
-# show
+# # show
 
 
