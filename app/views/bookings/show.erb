@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= @booking.id %></title>
+</head>
+<body>
+	<h1>Booking Details</h1>
+	<div><a href="/homepage">Homepage</a></div>
+	<div>a href="/</div>
+	<div>
+		<h3><%= @booking.checkin %></h3>
+		<h3><%= @booking.checkout %></h3>
+		<h3><%= @booking.user_id %></h3>
+		<h3><%= @booking.properties_id %></h3>
+		
+		<p>
+			<form action="/homepage" method="get">
+			<input type="submit" value="Confirm Your Booking!">
+			</form>
+		</p>
+		
+	</div>
+
+</body>
+</html>

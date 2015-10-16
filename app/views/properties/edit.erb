@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Property</title>
+</head>
+<body>
+	<h3>Edit Property</h3>
+	<form action="/properties/<%= @property.user_id %>/edit" method="post">
+		<input type="text" placeholder="Edit Title" name="title"><br>
+		<input type=text placeholder="Edit Description" name="description"><br>
+		<input type=text placeholder="Edit Price" name="price"><br>
+
+		<p>
+		<input type=submit value="Edit Property" name="decision">
+		</p>
+		<p><input type=submit value="Delete Property" name="decision"></p><br>
+		<p>
+	</form>
+
+</body>
+</html>

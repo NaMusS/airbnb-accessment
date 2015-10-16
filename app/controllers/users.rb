@@ -1,17 +1,17 @@
 require 'byebug'
 
-get '/users/new' do
+get '/users/new' do#new
 	
 	erb :"users/new"
 end
 
-post '/users/create' do
+post '/users/create' do#create
 	@user = User.create(username: params[:username],password: params[:password])
 	erb :"users/show"
 
 end
 
-get '/users/:id' do
+get '/users/:id' do#show
 	@user = User.find(params[:id])
 	erb :"users/show"
 end

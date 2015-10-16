@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Here Are Your Comments</title>
+</head>
+<body>
+	<h1>Comment Details</h1>
+	<div><a href="/">Homepage</a></div>
+	<div>
+		<h3><%= @comment.description %></h3>
+		<h3><%= @comment.user_id %></h3>
+		<h3><%= @comment.property_id %></h3>
+		
+		<p>
+			<form action="/comments/new" method="get">
+			<input type="submit" value="Submit Your Comment Here!">
+			</form>
+		</p>
+		<!--<p><a href="/properties/<%= @property.id %>/edit">Edit</a></p> -->
+	</div>
+
+</body>
+</html>

@@ -1,16 +1,15 @@
-get '/properties/new' do
+get '/properties/new' do#new
 	
 	erb :"properties/new"
 end
 
-post '/properties/create' do
+post '/properties/create' do#create
 	@property = Property.create(title: params[:title],description: params[:description],price: params[:price],user_id: params[:user_id])
 	@user = User.find(@property.user_id)
 	erb :"properties/show"
-
 end
 
-get '/properties/:id' do
+get '/properties/:id' do#show
 	@property = Property.find(params[:id])
 	erb :"properties/show"
 end

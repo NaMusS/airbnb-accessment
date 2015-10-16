@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Property Details</title>
+	<title><%= @property.title %></title>
 </head>
 <body>
 	<h1>Property Details</h1>
 	<div><a href="/">Homepage</a></div>
 	<div>
-		<h1><%= @property.title %></h1>
-		<h1><%= @property.description %></h1>
-		<h1><%= @property.price %></h1>
-		<h1><%=@property.user_id %></h1>
-		<!--%= @user.username %><br>
-		<%  @user.properties.all.each do |property| %>
-		<%= property.title %><br>
-		<%= property.description %><br>
-		<%= property.price %><br>			
-		<%  end  %><br-->
-		<p><a href="/properties/<%= @property.id %>/edit">Edit</a></p>
+		<h3><%= @property.title %></h3>
+		<h3><%= @property.description %></h3>
+		<h3><%= @property.price %></h3>
+		<h3><%= @property.user_id %></h3>
+		
+		<p>
+			<form action="/bookings/new" method="get">
+			<input type="submit" value="Make A Booking!">
+			</form>
+		</p>
+		<!--<p><a href="/properties/<%= @property.id %>/edit">Edit</a></p> -->
 	</div>
 
 </body>
