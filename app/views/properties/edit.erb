@@ -5,16 +5,16 @@
 </head>
 <body>
 	<h3>Edit Property</h3>
-	<form action="/properties/<%= @property.user_id %>/edit" method="post">
-		<input type="text" placeholder="Edit Title" name="title"><br>
-		<input type=text placeholder="Edit Description" name="description"><br>
-		<input type=text placeholder="Edit Price" name="price"><br>
+	<form action="/properties/<%= @property.id %>" method="post">
+		<input type="text" placeholder="Edit Title" name="title" value="<%= @property.title %>"><br>
+		<input type="text" placeholder="Edit Description" name="description" value="<%= @property.description %>"><br>
+		<input type="text "placeholder="Edit Price" name="price" value="<%= @property.price %>"><br>
 
 		<p>
-		<input type=submit value="Edit Property" name="decision">
+		<input type="submit" value="Edit Property" name="decision">
 		</p>
-		<p><input type=submit value="Delete Property" name="decision"></p><br>
-		<p>
+		<p><input type="submit" value="Delete Property" name="decision"></p><br>
+		
 	</form>
 
 </body>

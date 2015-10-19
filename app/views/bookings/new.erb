@@ -5,12 +5,12 @@
 </head>
 <body>
 	<h3>Make A Booking Here!</h3>
-	<form action="/bookings/create" method="post">
+	<form action="/properties/<%= @property.id %>/bookings/create" method="post">
 		<input type="text" placeholder="Checkin" name="checkin"><br>
 		<input type="text" placeholder="Checkout" name="checkout"><br>
-		<input type="text" placeholder="User Id" name="user_id"><br>
-		<input type="text" placeholder="Properties Id" name="properties_id"><br>
-
+		<input type="hidden" placeholder="User Id" name="user_id" value="<%= @user.id %>"><br>
+		<input type="hidden" placeholder="Properties Id" name="properties_id" value="<%= @property.id %>"><br>
+		
 		<p>
 		<input type="submit" value="Make Your Booking Now!">
 		</p>

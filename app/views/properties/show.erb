@@ -10,13 +10,14 @@
 		<h3><%= @property.title %></h3>
 		<h3><%= @property.description %></h3>
 		<h3><%= @property.price %></h3>
-		<h3><%= @property.user_id %></h3>
+		<h3><%= @property.user.username %></h3>
 		
 		<p>
-			<form action="/bookings/new" method="get">
+			<form action="/properties/<%= @property.id %>/bookings/new" method="get">
 			<input type="submit" value="Make A Booking!">
 			</form>
 		</p>
+		<p><a href="/properties/<%= @property.id %>/edit">Edit</a></p>
 		<!--<p><a href="/properties/<%= @property.id %>/edit">Edit</a></p> -->
 	</div>
 

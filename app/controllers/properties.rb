@@ -21,10 +21,10 @@ end
 
 post '/properties/:id' do#update
 	@property = Property.find(params[:id])
-	if params[:decision] == "Edit"
+	if params[:decision] == "Edit Property"
 		@property.update(title: params[:title],description: params[:description],price: params[:price])
 		erb :"properties/show"
-	elsif params[:decision] == "Delete"
+	elsif params[:decision] == "Delete Property"
 		@property.destroy
 		erb :"static/index"
 	end

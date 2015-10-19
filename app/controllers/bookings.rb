@@ -1,13 +1,17 @@
 require 'byebug'
 
-get '/bookings/new' do#new
+get '/properties/:id/bookings/new' do#new
+	@property = Property.find(params[:id])
 	
+	@user = User.find(1)	
 	erb :"bookings/new"
 end
 
-post '/bookings/create' do#create
+post '/properties/:id/bookings/create' do#create
+	
 	@booking = Booking.create(checkin: params[:checkin],checkout: params[:checkout],user_id: params[:user_id],properties_id: params[:properties_id])
 	#how do i connect to the user?
+
 	erb :"bookings/show"
 end
 
