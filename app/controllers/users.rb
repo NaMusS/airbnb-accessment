@@ -9,11 +9,18 @@ post '/homepage' do#log in
 	#if user exists
 
 	session[:id] = user.id
+	@property = Property.all
 	erb :"static/homepage"
 	else
 		redirect to '/'
 	end
 end
+
+get '/homepage' do
+	@property = Property.all
+	erb :"static/homepage"
+end
+
 
 #log out
 post '/' do 

@@ -5,19 +5,59 @@
 </head>
 <body>
 	<h1>Property Details</h1>
-	<div><a href="/">Homepage</a></div>
+	<div><a href="/homepage">Homepage</a></div><br>
+	
 	<div>
-		<h3><%= @property.title %></h3>
-		<h3><%= @property.description %></h3>
-		<h3><%= @property.price %></h3>
-		<h3><%= @property.user.username %></h3>
+		<table border="1">
+			<tr>
+				<th>Property ID</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Property Owner</th>
+			</tr>
+			<tr>
+				<td><%= @property.id %></td>
+				<td><%= @property.title %></td>
+				<td><%= @property.description %></td>
+				<td><%= @property.price %></td>
+				<td><%= @property.user.username %></td>
+			</tr>			
+		</table>
+
+		<!-- <h3>Property ID: <%= @property.id %></h3>
+		<h3>Title: <%= @property.title %></h3>
+		<h3>Description: <%= @property.description %></h3>
+		<h3>Price: <%= @property.price %></h3>
+		<h3>Property Owner: <%= @property.user.username %></h3> -->
 		
 		<p>
 			<form action="/properties/<%= @property.id %>/bookings/new" method="get">
 			<input type="submit" value="Make A Booking!">
 			</form>
 		</p>
-		<p><a href="/properties/<%= @property.id %>/edit">Edit</a></p>
+
+	<h1>Property Comments/Reviews</h1>
+
+	<h1>Booking List</h1>
+	<table border="2">
+		<tr>
+				<th>User</th>
+				<th>CheckIn</th>
+				<th>CheckOut</th>
+		</tr>
+
+	<% @bookings.each do |bookings| %>
+		<tr>
+			<td><%= bookings.user.username %></td>
+			<td><%= bookings.checkin %></td>
+			<td><%= bookings.checkout %></td>
+			<% end %>
+		</tr>
+	</table>
+
+		
+		<!-- <p><a href="/properties/<%= @property.id %>/edit">Edit</a></p> -->
 		<!--<p><a href="/properties/<%= @property.id %>/edit">Edit</a></p> -->
 	</div>
 

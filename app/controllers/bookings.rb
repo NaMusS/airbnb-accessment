@@ -2,17 +2,18 @@ require 'byebug'
 
 get '/properties/:id/bookings/new' do#new
 	@property = Property.find(params[:id])
-	
-	@user = User.find(1)	
+	# session[:id]
+	# @user = User.find(1)	
 	erb :"bookings/new"
 end
 
 post '/properties/:id/bookings/create' do#create
-	
-	@booking = Booking.create(checkin: params[:checkin],checkout: params[:checkout],user_id: params[:user_id],properties_id: params[:properties_id])
+	@property = Property.find(params[:id])
+	@user = User.find(session[:id])
+	@booking = Booking.create(checkin: params[:checkin],checkout: params[:checkout],user_id: @user.id,property_id: @property.id)
 	#how do i connect to the user?
-
-	erb :"bookings/show"
+	redirect to "/properties/#{@property.id}"
+	# erb :"bookings/show"
 end
 
 get '/bookings/:id' do#show
@@ -27,8 +28,9 @@ end
 
 post '/bookings/:id' do#update
 	@booking = Booking.find(params[:id])
+	@user = User.find(session[:id])
 	if params[:decision] == "Edit"
-		@booking.update(checkin: params[:checkin], checkout: params[:checkout],user_id: params[:user_id],properties_id: params[:properties_id])
+		@booking.update(checkin: params[:checkin], checkout: params[:checkout],user_id: @user.id,property_id: @property.id)
 		erb :"bookings/show"
 	elsif params[:decision] == "Delete"
 		@booking.destroy

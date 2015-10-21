@@ -1,39 +1,35 @@
 <h1>Congratulations You Have Logged In!</h1>
-<h1>This Is The Homepage!</h1>
+<h1>This Is Your Homepage!</h1>
+<h2>Here Are The Top Properties At The Moment</h2>
 
 <table border="1">
-	<tr>
-		<td>
-			<h2>Title<h2>
-		</td>
-		<td>
-			<h2>Description<h2>
-		</td>
-		<td>
-			<h2>Price</h2>
-		</td>
-		<td>
-			<h2>Listed By</h2>
-		</td>
-		<td>
-			<h2>Date Posted</h2>
-		</td>
-		<td>
-			<h2>Availability</h2><br>
-			<h3>Available: </h3><br>
-			<h3>Unavailable: </h3><br>
-		</td>
-		<td>
-			<h2>Book Now!!!</h2>
-			<form action="/bookings/:id" method="get">
-			<input type="submit" value="Book Now">
-				
-			</form>
-			
-		</td>
 
+	<tr>
+		<th>Property ID</th>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Price</th>
+		<th>Listed By</th>
+		<th>Date Posted</th>
+		<th>Availability</th>
+		<th>Book Now!!!</th>
 	</tr>
-</table>
+	<% @property.each do |property| %>
+	<tr>
+		<td><%= property.id %></td>
+		<td><%= property.title %></td>
+		<td><%= property.description %></td>
+		<td><%= property.price %></td>
+		<td><%= property.user.username %></td>
+		<td><%=property.created_at %></td>
+		<td>Available: Unavailable:</td>
+		<td><form action="/properties/<%= property.id %>" method="get">
+				<input type="submit" value="Book Now">
+				</form>
+		</td>
+		<% end %>				
+	</tr>
+</table><br>
 
 <form action="/" method="post">
  <input type="submit" value="Log Out Here!">

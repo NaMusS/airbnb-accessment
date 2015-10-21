@@ -6,16 +6,16 @@
 <body>
 	<h1>Booking Details</h1>
 	<div><a href="/homepage">Homepage</a></div>
-	<div>a href="/</div>
+	
 	<div>
 		<h3>Checkin: <%= @booking.checkin %></h3>
 		<h3>Checkout: <%= @booking.checkout %></h3>
 		<h3>Booking Owner: <%= @booking.user.username %></h3>
-		<h3>Property ID: <%= @booking.properties_id %></h3>
+		<h3>Property ID: <%= @booking.property_id %></h3>
 		
 		<p>
-			<form action="/homepage" method="get">
-			<input type="submit" value="Confirm Your Booking!">
+			<form action="/bookings/<%= @booking.id %>/edit" method="get">
+			<input type="submit" value="Edit And Confirm Your Booking!">
 			</form>
 		</p>
 		

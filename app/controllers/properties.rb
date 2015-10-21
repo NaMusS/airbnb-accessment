@@ -1,3 +1,4 @@
+
 get '/properties/new' do#new
 	
 	erb :"properties/new"
@@ -11,6 +12,7 @@ end
 
 get '/properties/:id' do#show
 	@property = Property.find(params[:id])
+	@bookings = Booking.where(property_id: @property.id)
 	erb :"properties/show"
 end
 
