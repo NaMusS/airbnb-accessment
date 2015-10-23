@@ -1,20 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><%= @user.username %>'s profile</title>
+	<title><%= @user.username %>'s Profile</title>
 </head>
 <body>
-	<h1><%= @user.username %>'s profile</h1>
-	<div><a href="/">Login In Now!</a></div>
-	<div>
-		<%= @user.username %><br>
-		<%  @user.properties.all.each do |property| %>
-		<%= property.title %><br>
-		<%= property.description %><br>
-		<%= property.price %><br>			
-		<%  end  %><br>
-		<p><a href="/users/<%= @user.id %>/edit">Edit</a></p>
+	<div><a href="/homepage">Homepage</a></div><br>
+	<h1><%= @user.username %>'s Profile</h1>
+	
+		<h2>My Properties</h2>
+		<div>
+			<table border="2">
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Date Posted</th>
+					<th>Edit Property</th>
+				</tr>
+				<%  @properties.each do |property| %>
+				<tr>
+					<td><%= property.title %></td>
+					<td><%= property.description %></td>
+					<td><%= property.price %></td>
+					<td><%= property.created_at %></td>
+					<td>
+						<form action="/properties/<%= property.id %>/edit" method="get">
+						<input type="submit" value="Edit Your Property">
+						</form>
+					</td>
+						<% end %>
+				</tr>
+			</table>
+			<div><%= erb :'/properties/_form' %></div>
+		</div>
 	</div>
+	<div>
+		<h2>My Bookings</h2>
+		<div>
+			<table border="2">
+				<tr>
+					<th>Property Title</th>
+					<th>Checkin Date</th>
+					<th>Checkout Date</th>
+					<th>Booking Date</th>
+					<th>Modify Your Booking</th>
+				</tr>
+				 <%  @bookings.each do |booking| %>
+				 <%#byebug%>
+				<tr>
+					<td><%= booking.property.title %></td>
+					<td><%= booking.checkin %></td>
+					<td><%= booking.checkout %></td>
+					<td><%= booking.created_at %></td>
+					<td>
+					<form action="/bookings/<%= booking.id %>/edit" method="get">
+					<input type="submit" value="Edit Your Booking">
+						
+					</form>
+					</td>
+					<% end %>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+		<p>
+			<form action="/" method="post">
+			<input type="submit" value="Log Out Here!">
+			</form>
+	
+		</p>
 
 </body>
 </html>

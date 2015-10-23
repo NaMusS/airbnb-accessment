@@ -4,15 +4,19 @@ get '/properties/:id/comments/new' do#new
 	erb :"comments/new"
 end
 
-post 'properties/:id/comments/create' do#create
-	@comment = Comment.create(description: params[:description],user_id: params[:user_id],property_id: params[:property_id])
-	@user = User.find(@comment.user_id)
+post '/properties/:id/comments/create' do#create
+	@property = Property.find(params[:id])
+	# @user = User.find(@comment.user_id)
+	@user = User.find(session[:id])
+	@comment = Comment.create(description: params[:description],user_id: @user.id,property_id: @property.id)
+	# erb :'comments/_form'
 	# erb :"comments/show"
 	redirect to "/properties/#{@property.id}"
 end
 
 get '/comments/:id' do#show
-	@comment = Comment.find(params[:id])
+	@comment = Comment.where(params[:property.id])
+	# @comment = Comment.find(params[:id])
 	erb :"comments/show"
 end
 

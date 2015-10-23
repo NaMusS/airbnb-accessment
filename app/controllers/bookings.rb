@@ -18,23 +18,33 @@ end
 
 get '/bookings/:id' do#show
 	@booking = Booking.find(params[:id])
+	#experiment below
 	erb :"bookings/show"
 end
 
 get '/bookings/:id/edit' do#edit
+	#do i add @user session here?
+	# @user = User.find(session[:id])
 	@booking = Booking.find(params[:id])
 	erb :"bookings/edit"
 end
 
 post '/bookings/:id' do#update
+	@property = Property.find(params[:id]) # testing
+	byebug
 	@booking = Booking.find(params[:id])
+	byebug
 	@user = User.find(session[:id])
-	if params[:decision] == "Edit"
+	if params[:decision] == "Edit Your Booking"
 		@booking.update(checkin: params[:checkin], checkout: params[:checkout],user_id: @user.id,property_id: @property.id)
-		erb :"bookings/show"
-	elsif params[:decision] == "Delete"
+		#redirect to user profile experiment
+		redirect to "/users/#{@user.id}"
+		# erb :"bookings/show"
+	elsif params[:decision] == "Delete/Cancel Your Booking"
 		@booking.destroy
-		erb :"static/index"
+		#redirect to user profile experiment
+		redirect to "/users/#{@user.id}"
+		# erb :"static/index"
 	end
 end
 

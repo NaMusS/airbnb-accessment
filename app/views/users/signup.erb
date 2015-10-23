@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= @user.username %>'s profile</title>
+</head>
+<body>
+	<h1><%= @user.username %>'s profile</h1>
+	<div><a href="/">Login In Now!</a></div>
+	<div>
+		<%= @user.username %><br>
+		<%  @user.properties.all.each do |property| %>
+		<%= property.title %><br>
+		<%= property.description %><br>
+		<%= property.price %><br>			
+		<%  end  %><br>
+		<p><a href="/users/<%= @user.id %>/edit">Edit</a></p>
+	</div>
+
+</body>
+</html>

@@ -1,15 +1,16 @@
-<h1>Congratulations You Have Logged In!</h1>
-<h1>This Is Your Homepage!</h1>
-<h2>Here Are The Top Properties At The Moment</h2>
+<h1>Congratulations <%= @user.username %> You Have Logged In!</h1>
+<h1>Here's Your Homepage!</h1>
+<h2>Here Are The Top Properties At The Moment</h2><br>
+<div><a href="/users/<%= @user.id %>">User Profile</a></div><br>
 
 <table border="1">
 
 	<tr>
 		<th>Property ID</th>
+		<th>Listed By</th>
 		<th>Title</th>
 		<th>Description</th>
 		<th>Price</th>
-		<th>Listed By</th>
 		<th>Date Posted</th>
 		<th>Availability</th>
 		<th>Book Now!!!</th>
@@ -17,11 +18,11 @@
 	<% @property.each do |property| %>
 	<tr>
 		<td><%= property.id %></td>
+		<td><%= property.user.username %></td>
 		<td><%= property.title %></td>
 		<td><%= property.description %></td>
 		<td><%= property.price %></td>
-		<td><%= property.user.username %></td>
-		<td><%=property.created_at %></td>
+		<td><%= property.created_at %></td>
 		<td>Available: Unavailable:</td>
 		<td><form action="/properties/<%= property.id %>" method="get">
 				<input type="submit" value="Book Now">

@@ -4,7 +4,7 @@
 	<title>Add A Property</title>
 </head>
 <body>
-	<h3>Add A Property Here!</h3>
+	<h3>Add Your New Property Here <%= @user.username %> !</h3>
 	<form action="/properties/create" method="post">
 		<input type="text" placeholder="Title" name="title"><br>
 		<input type="text" placeholder="Description" name="description"><br>

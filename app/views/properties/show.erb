@@ -6,18 +6,18 @@
 <body>
 	<h1>Property Details</h1>
 	<div><a href="/homepage">Homepage</a></div><br>
-	
+
 	<div>
-		<table border="1">
+		<table border="2">
 			<tr>
-				<th>Property ID</th>
+				<!-- <th>Property ID</th> -->
 				<th>Title</th>
 				<th>Description</th>
 				<th>Price</th>
 				<th>Property Owner</th>
 			</tr>
 			<tr>
-				<td><%= @property.id %></td>
+				<!-- <td><%= @property.id %></td> -->
 				<td><%= @property.title %></td>
 				<td><%= @property.description %></td>
 				<td><%= @property.price %></td>
@@ -25,6 +25,7 @@
 			</tr>			
 		</table>
 
+		
 		<!-- <h3>Property ID: <%= @property.id %></h3>
 		<h3>Title: <%= @property.title %></h3>
 		<h3>Description: <%= @property.description %></h3>
@@ -38,6 +39,27 @@
 		</p>
 
 	<h1>Property Comments/Reviews</h1>
+	<table border="2">
+		<tr>
+			<!-- <th>Comment ID</th> -->
+			<th>User</th>
+			<th>Description</th>
+		</tr>
+
+		<% if !@comments.nil? %>
+		<% 	@comments.each do |comments| %>
+		 
+		<tr>
+			<!-- <td><%= comments.id %></td> -->
+			<td><%= comments.user.username %></td>
+			<td><%= comments.description %></td>
+			<% end %>
+			<% end %>
+		</tr>
+
+	</table>
+
+	<%= erb :'comments/_form' %>
 
 	<h1>Booking List</h1>
 	<table border="2">
@@ -56,10 +78,16 @@
 		</tr>
 	</table>
 
-		
-		<!-- <p><a href="/properties/<%= @property.id %>/edit">Edit</a></p> -->
-		<!--<p><a href="/properties/<%= @property.id %>/edit">Edit</a></p> -->
+	</div><br>
+
+	<div>
+
+	<form action="/" method="post">
+ 		<input type="submit" value="Log Out Here!">
+	</form>
+
 	</div>
+
 
 </body>
 </html>

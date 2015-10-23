@@ -4,15 +4,15 @@
 	<title>Edit Your Booking</title>
 </head>
 <body>
-	<h3>Edit Booking</h3>
-	<form action="/bookings/<%= @booking.user_id %>/edit" method="post">
+	<h3>Edit Your Booking</h3>
+	<form action="/bookings/<%= @booking.id %>" method="post">
 		<input type="text" placeholder="Edit Checkin" name="checkin"><br>
 		<input type="text" placeholder="Edit Checkout" name="checkout"><br>		
 
 		<p>
-		<input type="submit" value="Edit Booking" name="decision">
+		<input type="submit" value="Edit Your Booking" name="decision">
 		</p>
-		<p><input type="submit" value="Delete Booking" name="decision"></p><br>
+		<p><input type="submit" value="Delete/Cancel Your Booking" name="decision"></p><br>
 		<p>
 	</form>
 
